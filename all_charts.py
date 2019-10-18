@@ -701,5 +701,5 @@ if __name__ == "__main__":
     ind_onice_chart.savefig(f"allcharts-ind-onice-{team_abbrev}-{game_id}.png", bbox_inches="tight")
 
     fwds_def_chart = charts_fwds_def(game_title, args.team, fwd_sva_stats, def_sva_stats)
-    fwds_def_chart.savefig(f"allcharts-fws-def-{team_abbrev}-{game_id}.png", bbox_inches="tight")
+    fwds_def_chart.savefig(f"allcharts-fwd-def-{team_abbrev}-{game_id}.png", bbox_inches="tight")
 
