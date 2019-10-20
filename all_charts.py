@@ -6,6 +6,7 @@
 
 import argparse
 import math
+import os
 import sys
 import time
 
@@ -17,6 +18,8 @@ import requests
 import seaborn as sns
 from bs4 import BeautifulSoup
 from matplotlib import ticker
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
 ###################################################
 # ALL NATURAL STAT TRICK URL FUNCTIONS
@@ -70,7 +73,7 @@ def is_nst_ready(team_name):
 def soup_nst(game_id):
     try:
         print("Souping Local Full Game Report - might take a while ... ", end="")
-        soup = BeautifulSoup(open(f"{game_id}.html"), "lxml")
+        soup = BeautifulSoup(open(f"{PROJECT_ROOT}/{game_id}.html"), "lxml")
         print("DONE!")
     except Exception as e:
         print("FAILED!")
@@ -651,7 +654,7 @@ if __name__ == "__main__":
 
 
     while not ready:
-        ready, sleep_time, game_id = is_nst_ready("Penguins")
+        ready, sleep_time, game_id = is_nst_ready(args.team)
 
         if sleep_time == -1:
             sys.exit()
@@ -695,11 +698,11 @@ if __name__ == "__main__":
 
     # Now create all necessary graphs, charts, heatmaps, etc
     heatmap = charts_heatmap_oppo_lm(args.team, oppo_toi, oppo_cfwith, linemate_toi, linemate_cfwith)
-    heatmap.savefig(f'allcharts-heatmaps-{team_abbrev}-{game_id}.png')
+    heatmap.savefig(f'{PROJECT_ROOT}/allcharts-heatmaps-{team_abbrev}-{game_id}.png')
 
     ind_onice_chart = charts_toi_individual(game_title, args.team, toi_dict, ind_stats, oi_sva_stats)
-    ind_onice_chart.savefig(f"allcharts-ind-onice-{team_abbrev}-{game_id}.png", bbox_inches="tight")
+    ind_onice_chart.savefig(f"{PROJECT_ROOT}/allcharts-ind-onice-{team_abbrev}-{game_id}.png", bbox_inches="tight")
 
     fwds_def_chart = charts_fwds_def(game_title, args.team, fwd_sva_stats, def_sva_stats)
-    fwds_def_chart.savefig(f"allcharts-fwd-def-{team_abbrev}-{game_id}.png", bbox_inches="tight")
+    fwds_def_chart.savefig(f"{PROJECT_ROOT}/allcharts-fwd-def-{team_abbrev}-{game_id}.png", bbox_inches="tight")
 
