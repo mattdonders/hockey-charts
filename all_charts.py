@@ -32,7 +32,7 @@ def nst_team_dictionary(team_name):
         'Senators': 'OTT', 'Maple Leafs': 'TOR', 'Hurricanes': 'CAR', 'Panthers':
         'FLA', 'Lightning': 'TB', 'Capitals': 'WSH', 'Blackhawks': 'CHI', 'Red Wings': 'DET',
         'Predators': 'NSH', 'Blues': 'STL', 'Flames': 'CGY', 'Avalanche': 'COL', 'Oilers': 'EDM',
-        'Canucks': 'VAN', 'Ducks': 'ANA', 'Stars': 'DAL', 'Kings': 'LAK', 'Sharks': 'SJ',
+        'Canucks': 'VAN', 'Ducks': 'ANA', 'Stars': 'DAL', 'Kings': 'LA', 'Sharks': 'SJ',
         'Blue Jackets': 'CBJ', 'Wild': 'MIN', 'Jets': 'WPG', 'Coyotes': 'ARI', 'Golden Knights': 'VGK'
     }
 
